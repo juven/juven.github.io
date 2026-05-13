@@ -1,0 +1,27 @@
+title: 许晓斌
+author: 许晓斌
+email: juvenshun@gmail.com
+description: >-
+  许晓斌的个人主页 / Personal site of Xu Xiaobin.
+url: "https://juven.github.io"
+baseurl: ""
+
+github_username: juven
+lang: zh-CN
+
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+minima:
+  social_links:
+    - { platform: github, user_url: "https://github.com/juven" }
+
+header_pages:
+  - about.md
+
+show_excerpts: true
+
+permalink: /:year/:month/:day/:title/
