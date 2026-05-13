@@ -1,0 +1,446 @@
+---
+# Front matter required so Jekyll processes this as SCSS.
+---
+
+// ============================================================
+// Override minima variables BEFORE @import.
+// Minima declares its variables with !default, so these win.
+// ============================================================
+
+$brand-color:        #c0392b;          // terracotta accent
+$brand-color-light:  #e74c3c;
+$brand-color-dark:   #962d22;
+
+$text-color:         #1a1a1a;
+$background-color:   #fdfdfd;
+
+$grey-color:         #6a6a6a;
+$grey-color-light:   #e8e8e8;
+$grey-color-dark:    #424242;
+
+$base-font-family:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+$heading-font-family: 'Merriweather', Georgia, 'Times New Roman', 'PingFang SC', 'Microsoft YaHei', serif;
+$code-font-family:    'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+$base-font-size:    18px;
+$base-font-weight:  400;
+$small-font-size:   $base-font-size * 0.875;
+$base-line-height:  1.7;
+
+$spacing-unit:      30px;
+
+$content-width:     760px;
+$on-laptop:         800px;
+
+// ============================================================
+// Import minima.
+// ============================================================
+@import "minima";
+
+// ============================================================
+// Web fonts.
+// ============================================================
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+// ============================================================
+// Typography overrides.
+// ============================================================
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: $text-color;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.4em; margin-top: 0; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.3em; }
+h4 { font-size: 1.1em; }
+
+p, li {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+// ============================================================
+// Links.
+// ============================================================
+a {
+  color: $brand-color;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+
+  &:visited { color: $brand-color; }
+  &:hover {
+    color: $brand-color-dark;
+    text-decoration-thickness: 2px;
+  }
+}
+
+// ============================================================
+// Header / nav.
+// ============================================================
+.site-header {
+  border-top: none;
+  border-bottom: 1px solid $grey-color-light;
+  min-height: auto;
+  padding: 0.8em 0;
+  background: rgba(253, 253, 253, 0.92);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-title,
+.site-title:visited {
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: 1.3em;
+  letter-spacing: -0.02em;
+  color: $text-color;
+  text-decoration: none;
+  line-height: 1.6;
+
+  &:hover {
+    color: $brand-color;
+    text-decoration: none;
+  }
+}
+
+.site-nav {
+  line-height: 2.4;
+
+  .page-link {
+    color: $text-color;
+    font-weight: 500;
+    font-size: 0.95em;
+    text-decoration: none;
+    margin-left: 1.6em;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+}
+
+// ============================================================
+// Layout — wrapper & content widths.
+// ============================================================
+.wrapper {
+  max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+  padding-left: $spacing-unit;
+  padding-right: $spacing-unit;
+}
+
+.page-content {
+  padding-top: 3em;
+  padding-bottom: 4em;
+}
+
+// ============================================================
+// Home / landing-page sections.
+// ============================================================
+.intro {
+  margin-bottom: 4em;
+
+  h1 {
+    font-size: 2.2em;
+    line-height: 1.2;
+    margin-bottom: 0.4em;
+  }
+
+  .lede {
+    font-size: 1.15em;
+    color: $grey-color-dark;
+    line-height: 1.6;
+  }
+}
+
+.recent-posts {
+  h2 {
+    font-size: 1.5em;
+    border-bottom: 2px solid $brand-color;
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+  }
+
+  .archive-link {
+    margin-top: 2em;
+    font-weight: 500;
+  }
+}
+
+.post-list-compact {
+  .post-list-item {
+    padding: 1.2em 0;
+    border-bottom: 1px solid $grey-color-light;
+
+    &:last-child { border-bottom: none; }
+
+    h3 {
+      margin: 0.3em 0 0.4em;
+      font-size: 1.25em;
+      line-height: 1.35;
+
+      a {
+        color: $text-color;
+        text-decoration: none;
+
+        &:hover { color: $brand-color; }
+      }
+    }
+
+    .post-meta {
+      font-family: $code-font-family;
+      font-size: 0.85em;
+      color: $grey-color;
+      letter-spacing: 0.02em;
+    }
+
+    .post-excerpt {
+      color: $grey-color-dark;
+      font-size: 0.95em;
+      line-height: 1.55;
+      margin: 0;
+    }
+  }
+}
+
+// ============================================================
+// Post listing (default minima .post-list).
+// ============================================================
+.post-list {
+  list-style: none;
+  margin-left: 0;
+
+  > li {
+    margin-bottom: 2.5em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid $grey-color-light;
+  }
+
+  h3 {
+    margin: 0.3em 0;
+    font-size: 1.3em;
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+      &:hover { color: $brand-color; }
+    }
+  }
+}
+
+.post-meta {
+  font-family: $code-font-family;
+  font-size: 0.85em;
+  color: $grey-color;
+  letter-spacing: 0.02em;
+}
+
+// ============================================================
+// Article / single post.
+// ============================================================
+.post {
+  .post-header {
+    margin-bottom: 2.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $grey-color-light;
+  }
+
+  .post-title {
+    font-size: 2.6em;
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+  }
+
+  .post-content {
+    font-size: 18px;
+    line-height: 1.8;
+
+    h2 { font-size: 1.6em; margin-top: 2em; }
+    h3 { font-size: 1.3em; }
+
+    p { margin-bottom: 1.4em; }
+  }
+}
+
+// ============================================================
+// Code & inline code.
+// ============================================================
+code {
+  font-family: $code-font-family;
+  font-size: 0.92em;
+  background: #f4f1ed;
+  color: $brand-color-dark;
+  padding: 0.15em 0.45em;
+  border-radius: 3px;
+  border: none;
+}
+
+pre {
+  background: #1d1f21;
+  color: #c5c8c6;
+  padding: 1.2em 1.4em;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: none;
+  font-size: 0.92em;
+  line-height: 1.55;
+
+  code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+}
+
+// ============================================================
+// Blockquote.
+// ============================================================
+blockquote {
+  border-left: 4px solid $brand-color;
+  background: rgba(192, 57, 43, 0.05);
+  color: $grey-color-dark;
+  padding: 0.8em 1.2em;
+  margin: 1.5em 0;
+  border-radius: 0 4px 4px 0;
+  font-style: normal;
+  letter-spacing: normal;
+
+  > :last-child { margin-bottom: 0; }
+}
+
+// ============================================================
+// Tables.
+// ============================================================
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95em;
+
+  th, td {
+    padding: 0.6em 0.8em;
+    text-align: left;
+    border-bottom: 1px solid $grey-color-light;
+  }
+
+  th {
+    font-weight: 600;
+    background: #faf8f5;
+    border-bottom: 2px solid $brand-color;
+  }
+}
+
+// ============================================================
+// Blog archive page.
+// ============================================================
+.page-header {
+  margin-bottom: 2.5em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $grey-color-light;
+
+  h1 {
+    margin-bottom: 0.3em;
+  }
+
+  .lede {
+    color: $grey-color;
+    font-size: 1em;
+    margin: 0;
+  }
+}
+
+.archive {
+  .archive-year {
+    font-family: $heading-font-family;
+    font-size: 1.6em;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid $brand-color;
+
+    &:first-of-type { margin-top: 0; }
+  }
+
+  .archive-item {
+    display: flex;
+    align-items: baseline;
+    padding: 0.7em 0;
+    border-bottom: 1px solid $grey-color-light;
+
+    &:last-child { border-bottom: none; }
+  }
+
+  .archive-date {
+    font-family: $code-font-family;
+    font-size: 0.85em;
+    color: $grey-color;
+    width: 5em;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .archive-title a {
+    color: $text-color;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover { color: $brand-color; }
+  }
+}
+
+// ============================================================
+// Footer.
+// ============================================================
+.site-footer {
+  border-top: 1px solid $grey-color-light;
+  padding: 2.5em 0;
+  font-size: 0.9em;
+  color: $grey-color;
+
+  .footer-heading { display: none; }
+
+  .footer-col-wrapper {
+    color: $grey-color;
+  }
+
+  a {
+    color: $grey-color-dark;
+    text-decoration: none;
+
+    &:hover { color: $brand-color; }
+  }
+}
+
+// ============================================================
+// Responsive tweaks.
+// ============================================================
+@media screen and (max-width: $on-laptop) {
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; }
+
+  .post .post-title { font-size: 2.2em; }
+  .intro h1 { font-size: 1.9em; }
+}

@@ -20,8 +20,12 @@ minima:
     - { platform: github, user_url: "https://github.com/juven" }
 
 header_pages:
+  - blog.md
   - about.md
 
 show_excerpts: true
+
+# excerpt separator (older posts may use <!--more-->)
+excerpt_separator: "<!--more-->"
 
 permalink: /:year/:month/:day/:title/
