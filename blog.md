@@ -16,7 +16,13 @@ permalink: /blog/
     {% for post in year_group.items %}
       <div class="archive-item">
         <span class="archive-date">{{ post.date | date: "%m-%d" }}</span>
-        <span class="archive-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+        <div class="archive-content">
+          <span class="archive-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></span>
+          {% assign excerpt_text = post.excerpt | replace: '<br />', ' ' | replace: '<br>', ' ' | strip_html | strip_newlines | truncate: 90 %}
+          {% if excerpt_text != "" %}
+            <p class="list-excerpt">{{ excerpt_text }}</p>
+          {% endif %}
+        </div>
       </div>
     {% endfor %}
   {% endfor %}

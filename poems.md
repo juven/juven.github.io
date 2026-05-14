@@ -17,6 +17,10 @@ permalink: /poems/
       {% if poem.date %}
         <span class="poem-meta">{{ poem.date | date: "%Y-%m-%d" }}{% if poem.place %} · {{ poem.place }}{% endif %}</span>
       {% endif %}
+      {% assign excerpt_text = poem.excerpt | replace: '<br />', ' ' | replace: '<br>', ' ' | strip_html | strip_newlines | truncate: 70 %}
+      {% if excerpt_text != "" %}
+        <p class="list-excerpt">{{ excerpt_text }}</p>
+      {% endif %}
     </article>
   {% endfor %}
 </div>

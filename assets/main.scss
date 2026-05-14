@@ -386,8 +386,8 @@ table {
 
   .archive-item {
     display: flex;
-    align-items: baseline;
-    padding: 0.7em 0;
+    align-items: flex-start;
+    padding: 0.9em 0;
     border-bottom: 1px solid $grey-color-light;
 
     &:last-child { border-bottom: none; }
@@ -400,6 +400,12 @@ table {
     width: 5em;
     flex-shrink: 0;
     letter-spacing: 0.02em;
+    padding-top: 0.2em;
+  }
+
+  .archive-content {
+    flex: 1;
+    min-width: 0;
   }
 
   .archive-title a {
@@ -409,6 +415,21 @@ table {
 
     &:hover { color: $brand-color; }
   }
+}
+
+// ============================================================
+// Shared 2-line excerpt for index/archive lists (blog + poems).
+// ============================================================
+.list-excerpt {
+  margin: 0.3em 0 0;
+  font-size: 0.88em;
+  line-height: 1.5;
+  color: $grey-color;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 // ============================================================
