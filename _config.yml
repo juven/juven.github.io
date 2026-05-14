@@ -21,6 +21,7 @@ minima:
 
 header_pages:
   - blog.md
+  - poems.md
   - about.md
 
 show_excerpts: true
@@ -29,3 +30,16 @@ show_excerpts: true
 excerpt_separator: "<!--more-->"
 
 permalink: /:year/:month/:day/:title/
+
+# Collections
+collections:
+  poems:
+    output: true
+    permalink: /poems/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: poems
+    values:
+      layout: poem
